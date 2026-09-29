@@ -1,0 +1,229 @@
+/* =======================================================
+   Login / Register shared styles
+   ======================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f0f4ff;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+/* ---- Left image panel ---- */
+.left {
+    width: 50%;
+    min-height: 100vh;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---- Right form panel ---- */
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    min-height: 100vh;
+}
+
+/* ---- Logo ---- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.logo-container h1 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    background: linear-gradient(90deg, #1D4ED8, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---- Card box ---- */
+.box {
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0;
+    padding: 28px 24px 20px 24px;
+    box-shadow: 0 8px 32px rgba(79, 70, 229, 0.13);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+}
+
+.box h2 {
+    margin-top: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 22px);
+    color: #030158;
+    margin-bottom: 14px;
+}
+
+form {
+    padding: 0;
+}
+
+form label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+form input {
+    display: block;
+    margin: 7px 0;
+    padding: 8px 10px;
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    background: linear-gradient(to right, rgb(153, 104, 244), rgb(28, 24, 255));
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(140, 133, 241);
+    height: 38px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 16px auto 4px auto;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.box p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.box p a {
+    color: #4F46E5;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.box p a:hover {
+    text-decoration: underline;
+}
+
+small {
+    color: red;
+    display: block;
+    margin-top: 0;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+/* =======================================================
+   Responsive breakpoints
+   ======================================================= */
+
+/* Tablet: shrink image panel */
+@media (max-width: 900px) {
+    .left {
+        width: 42%;
+    }
+}
+
+/* Small tablet / large phone: hide image, center form */
+@media (max-width: 650px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #f0f4ff;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 100%;
+        min-height: 100vh;
+        padding: 30px 16px 40px;
+        justify-content: flex-start;
+    }
+
+    .box {
+        max-width: 420px;
+        width: 100%;
+        padding: 24px 18px 18px 18px;
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.12);
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 400px) {
+    .box {
+        padding: 18px 12px 14px 12px;
+    }
+
+    .logo-container img {
+        width: 38px;
+        height: 38px;
+    }
+}

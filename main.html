@@ -1,0 +1,162 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location:../auth/login.php");
+    exit();
+}
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+$first_letter = strtoupper(substr($user_name, 0, 1));
+include '../config/db.php';
+/** @var mysqli $conn */
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reports | Expense Tracker</title>
+    <link rel="icon" type="image/png" href="../assets/images/android-chrome-192x192.png">
+    <link rel="stylesheet" href="../assets/css/reports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="left">
+        <div class="logo-container">
+            <img src="../assets/images/mainlogo.jpeg" alt="Logo">
+            <h1>Expense Tracker</h1>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="../dashboard/dashboard.php"><i class="fa-solid fa-house" style="color:rgb(11, 57, 183);"></i>Dashboard</a></li>
+                <li><a href="../income/income.php"><i class="fa-solid fa-circle-arrow-up" style="color: rgb(52, 231, 21);"></i>Income</a>
+                </li>
+                <li><a href="../expenses/expense.php"><i class="fa-solid fa-circle-arrow-down"
+                            style="color: rgb(255, 43, 43);"></i>Expenses</a></li>
+                <li><a href="../transactions/transaction.php"><i class="fa-solid fa-table-list" style="color: rgb(208, 27, 228);"></i>Transactions</a>
+                </li>
+                <li><a href="../reports/reports.php"><i class="fa-solid fa-chart-simple" style="color: rgb(243, 120, 49);"></i>Reports</a>
+                </li>
+            </ul>
+            <hr style="margin:8px 10px">
+            <ul class="navbar">
+                <li id="logout"><a href="../auth/logout.php" id="logoutLink"><i class="fa-solid fa-right-from-bracket"
+                            style="color: rgb(255, 8, 8);font-size:18px;"></i>Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <h2>Profile
+            <span class="account">
+                <a href="#">
+                    <span class="account-1st"><?php echo $first_letter; ?></span>
+                    <span class="account-name"><?php echo ucfirst(strtolower($user_name)); ?></span>
+                    <span class="account-arrow"><i class="fa-solid fa-angle-down" style="color:rgb(129,109,243);"></i></span>
+                </a>
+            </span>
+        </h2>
+        <p>Manage your account information and preferences</p>
+
+    <div class="content-grid">
+
+      <!-- Left profile card -->
+      <div class="card profile-card">
+        <div class="avatar-wrap">
+          <div class="avatar-large">A</div>
+          <div class="camera-badge"><span>📷</span></div>
+        </div>
+        <h2>Asmi22</h2>
+        <p class="email">asmi22@example.com</p>
+
+        <div class="info-box">
+          <div class="info-row">
+            <div class="row-icon">📅</div>
+            <div>
+              <div class="label">Member Since</div>
+              <div class="value">June 2025</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="row-icon">🛡️</div>
+            <div>
+              <div class="label">Account Status</div>
+              <span class="status-badge">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right account info -->
+      <div>
+        <div class="card account-card">
+          <h3>Account Information</h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input id="fullname" type="text" value="Asmi22">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" value="asmi22@example.com">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="username">Username</label>
+              <input id="username" type="text" value="Asmi22">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="phone">Phone Number</label>
+              <input id="phone" type="text" value="+91 9876543210">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="current-pass">Current Password</label>
+              <input id="current-pass" type="password" placeholder="Enter current password">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="new-pass">New Password</label>
+              <input id="new-pass" type="password" placeholder="Enter new password">
+            </div>
+            <div class="form-group">
+              <label for="confirm-pass">Confirm New Password</label>
+              <input id="confirm-pass" type="password" placeholder="Confirm new password">
+            </div>
+          </div>
+
+          <button class="update-btn">🔒 Update Profile</button>
+        </div>
+
+        <div class="card settings-card">
+          <h3>Account Settings</h3>
+          <div class="delete-row">
+            <div class="delete-icon">🗑️</div>
+            <div class="delete-text">
+              <div class="title">Delete Account</div>
+              <div class="sub">Permanently delete your account</div>
+            </div>
+            <div class="chevron">›</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

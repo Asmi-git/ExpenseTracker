@@ -1,0 +1,478 @@
+﻿
+/* =======================================================
+   Hamburger / sidebar responsive overlay
+   ======================================================= */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1100;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 0;
+}
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: #030158;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.38);
+    z-index: 999;
+}
+.sidebar-overlay.active {
+    display: block;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+    min-height: 100vh;
+    background-color: aliceblue;
+}
+.logo-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 5px;
+    margin-top: 30px;
+}
+.logo-container img{
+    width:45px;
+    height:45px;
+}
+.logo-container h1{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: linear-gradient(90deg, #1D4ED8, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.left{
+    background-color: white;
+    position: fixed;
+    top:0;
+    left:0;
+    width:250px;
+    height:100vh;
+    box-shadow: 2px 2px 5px lightgray;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 30px;
+}
+
+li{
+    list-style: none;
+    width: 190px;
+    border-radius: 10px;
+    padding: 0;
+}
+li a{
+    display:flex;
+    align-items:center;
+    width:100%;
+    height:100%;
+    padding:15px 10px;
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+    font-size:18px;
+    box-sizing:border-box;
+}
+li a i{
+    font-size: 20px;
+    margin-right: 15px;
+}
+li:hover:not(.active a){
+    background-color: #e5ebf7;
+    cursor: pointer;
+}
+
+.active{
+    background: linear-gradient(to right,rgb(174,131,255),rgb(76,73,255));
+}
+.active a{
+    color:white;
+}
+.active a i{
+    color:white !important;
+}
+
+#logout a{
+    color:red;
+}
+#logout:hover{
+    background: rgb(255, 230, 230);
+}
+#logout:hover a i{
+    color:red !important;
+}
+.right{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+    margin-left: 260px;
+    font-family: 'Poppins',sans-serif;
+}
+.right h2{
+    margin-top: 30px;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.right .account{
+    float:right;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-right: 40px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 1px solid lightblue;
+}
+.right .account a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.right .account a .account-1st{
+    background-color: blue;
+    padding: 3px 6px;
+    width:20px;
+    height: auto;
+    border-radius: 60%;
+    text-align: center;
+    color:white;
+    font-size: 20px;
+    font-weight: medium;
+}
+.right .account .account-name{
+    color: rgb(5, 5, 135);
+    font-size: 16px;
+}
+.right .account .account-arrow{
+    font-size: 15px;
+}
+.right .breadcrumbs{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.right .breadcrumbs a{
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(145, 144, 144);
+}
+.three-box{
+    display: flex;
+    justify-content: space-evenly;
+    gap:45px;
+    align-items: center;
+    margin:0 20px;
+    height: auto;
+}
+.box1,.box2,.box3{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    background-color:white;
+    height: auto;
+    width:250px;
+    box-shadow: 2px 2px 5px lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+.img{
+    background-color: rgb(209, 253, 209);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img i{
+    font-size: 40px;
+    color: rgb(51, 224, 51);
+}
+.one{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.two{
+    margin-top: 5px;
+    font-size: larger;
+    color: rgb(51, 224, 51);
+    margin-bottom:10px;
+    font-weight: 550;
+}
+.three{
+    font-size: x-small;
+}
+.two-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.right .two-box .left-box{
+    background-color: white;
+    height: auto;
+    flex: 1;
+    width: 100%;
+    margin:20px 20px;
+    padding:0px 20px 20px 20px;
+    box-shadow:2px 2px 10px lightgray;
+    border-radius: 10px;
+}
+.two-box .left-box h4{
+    padding-top:15px;
+    margin: auto 0px;
+}
+.left-box .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left-box .field{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-size: 14px;
+    padding: 10px 0px;
+    margin-top: 8px;
+}
+input,select,textarea{
+    padding: 5px;
+    border:1px solid lightgray;
+    border-radius: 5px;
+}
+input:focus,select:focus,textarea:focus{
+    outline-color: rgb(188, 188, 188);
+}
+textarea{
+    resize: none;
+}
+select{
+    width: 250px;
+}
+input[type="number"]{
+    width: 220px;
+}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+#numError{
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+}
+.field #submit-btn{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    height: 35px;
+    background: linear-gradient(to right,rgb(153, 104, 244),rgb(28, 24, 255));
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 2px 2px 10px lightblue;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.two-box .right-box{
+    width:400px;
+    height: auto;
+    background-color: white;
+    margin-right: 20px;
+    box-shadow:2px 2px 10px lightgray;
+    border-radius: 10px;
+    text-align: center;
+}
+.transaction{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: auto;
+    margin:20px 20px 6px 20px;
+    padding:0 20px 25px 20px;
+    box-shadow:2px 2px 10px lightgray;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.transaction h4{
+    margin-left: 0;
+}
+.transaction table,tr,th,td{
+    border-collapse: collapse;
+    text-align: center;
+}
+.transaction th,td{
+    border-bottom: 1px solid lightgray;
+    padding:20px;
+}
+.transaction table{
+    width: 100%;
+    border: 1px solid lightgray;
+}
+.transaction th{
+    background-color: rgb(243, 248, 255);
+    color: #030158;
+}
+.transaction td{
+    font-size: 12px;
+}
+.transaction table tr td .date,.transaction table tr td .category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+}
+#logoutbtn,
+#cancelbtn{
+    padding: 5px 15px;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px rgb(115, 129, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#logoutbtn,
+#cancelbtn{
+    border: none;
+}
+#logoutbtn:hover,
+#cancelbtn:hover{
+    box-shadow: 0px 0px 10px rgb(156, 143, 241);
+}
+#logoutDialog{
+    border:1px solid rgb(109, 104, 104);
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+dialog::backdrop{
+    background:rgba(0,0,0,0.4);
+}
+.dialog-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+}
+
+/* =========================================================
+   Responsive improvements (added)
+   Base desktop styles above are untouched. These breakpoints
+   make the existing layout adapt to tablet/mobile instead of
+   overflowing horizontally.
+   ========================================================= */
+html{
+    overflow-x: hidden;
+}
+@media (max-width: 1100px){
+    .three-box{
+        flex-wrap: wrap;
+        gap:20px;
+    }
+    .two-box{
+        flex-wrap: wrap;
+    }
+    .two-box .left-box,
+    .two-box .right-box{
+        width: 100%;
+        margin: 20px 0 0 0;
+    }
+}
+@media (max-width: 900px){
+    .hamburger { display: flex; }
+    .left {
+        transform: translateX(-100%);
+        width: 240px;
+    }
+    .left.open {
+        transform: translateX(0);
+    }
+    .right{
+        margin-left: 0;
+        width: auto;
+    }
+    .right h2{
+        margin-top: 70px;
+        padding-left: 58px;
+    }
+    .right .account{
+        float:none;
+        margin: 12px 20px 0 20px;
+        width: fit-content;
+    }
+}
+@media (max-width: 600px){
+    .three-box{
+        margin: 0 10px;
+    }
+    .box1,.box2,.box3{
+        flex-basis: 100%;
+        width: auto !important;
+    }
+    .left-box .row{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    select,
+    input[type="number"]{
+        width: 100%;
+    }
+    .right-box img{
+        max-width: 100%;
+        height: auto;
+    }
+    .transaction{
+        margin:20px 10px 6px 10px;
+        overflow-x: auto;
+    }
+    .transaction table{
+        min-width: 500px;
+    }
+}

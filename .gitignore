@@ -1,0 +1,11 @@
+# Database config (contains passwords)
+config/db.php
+
+# XAMPP / server files
+*.log
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

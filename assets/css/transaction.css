@@ -1,0 +1,514 @@
+﻿
+/* =======================================================
+   Hamburger / sidebar responsive overlay
+   ======================================================= */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1100;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 0;
+}
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: #030158;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.38);
+    z-index: 999;
+}
+.sidebar-overlay.active {
+    display: block;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+    min-height: 100vh;
+    background-color: aliceblue;
+}
+.logo-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 5px;
+    margin-top: 30px;
+}
+.logo-container img{
+    width:45px;
+    height:45px;
+}
+.logo-container h1{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: linear-gradient(90deg, #1D4ED8, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.left{
+    background-color: white;
+    position: fixed;
+    top:0;
+    left:0;
+    width:250px;
+    height:100vh;
+    box-shadow: 2px 2px 5px lightgray;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 30px;
+}
+
+li{
+    list-style: none;
+    width: 190px;
+    border-radius: 10px;
+    padding: 0;
+}
+li a{
+    display:flex;
+    align-items:center;
+    width:100%;
+    height:100%;
+    padding:15px 10px;
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+    font-size:18px;
+    box-sizing:border-box;
+}
+li a i{
+    font-size: 20px;
+    margin-right: 15px;
+}
+li:hover:not(.active a){
+    background-color: #e5ebf7;
+    cursor: pointer;
+}
+.active{
+    background: linear-gradient(to right,rgb(174,131,255),rgb(76,73,255));
+}
+.active a{
+    color:white;
+}
+.active a i{
+    color:white !important;
+}
+
+#logout a{
+    color:red;
+}
+#logout:hover{
+    background: rgb(255, 230, 230);
+}
+#logout:hover a i{
+    color:red !important;
+}
+.right {
+  height: auto;
+  margin-left: 260px;
+  margin-right: 10px;
+  font-family: "Poppins", sans-serif;
+}
+.right h2 {
+  margin-top: 30px;
+  padding: 0px 2px;
+  margin-bottom: 5px;
+}
+.right .account {
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 40px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: 1px solid lightblue;
+}
+.right .account a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.right .account a .account-1st {
+  background-color: blue;
+  padding: 3px 6px;
+  width: 20px;
+  height: auto;
+  border-radius: 60%;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: medium;
+}
+.right .account .account-name {
+  color: rgb(5, 5, 135);
+  font-size: 16px;
+}
+.right .account .account-arrow {
+  font-size: 15px;
+}
+.right .breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
+.right .breadcrumbs a {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(145, 144, 144);
+}
+.three-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 45px;
+  align-items: center;
+  margin: 0 0px 25px 5px;
+  height: auto;
+}
+.box1,
+.box2,
+.box3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  height: auto;
+  width: auto;
+  box-shadow: 2px 2px 5px lightgray;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+}
+.img{
+    background-color: rgb(209, 253, 209);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img i{
+    font-size: 30px;
+    color: rgb(51, 224, 51);
+}
+.one{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.two{
+    margin-top: 5px;
+    font-size: 15px;
+    color: rgb(51, 224, 51);
+    margin-bottom:10px;
+    font-weight: 550;
+}
+.three{
+    font-size: x-small;
+}
+.search-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0px 20px 0px;
+}
+.search{
+    position: relative;
+}
+.search-icon-btn{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: gray;
+}
+.search .search-icon-btn i{
+    font-size: 14px;
+    color: rgb(103, 103, 103);
+    cursor: pointer;
+}
+.search input{
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid rgb(165, 164, 176);
+    outline-color: rgb(144, 169, 247);
+}
+.type-filter select,.category-filter select,.month-filter select{
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(165, 164, 176);
+    outline-color: rgb(144, 169, 247);
+    color: rgb(104, 103, 103);
+    cursor: pointer;
+}
+.reset-btn,
+.export-btn,
+#cancelbtn,
+#downloadbtn,
+#deletebtn,
+#notDeletebtn,
+#logoutbtn,
+#cancelBtn{
+    padding: 5px 15px;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px rgb(115, 129, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.reset-btn,
+#cancelbtn,
+#downloadbtn,
+#deletebtn,
+#notDeletebtn,
+#logoutbtn,
+#cancelBtn{
+    border: none;
+}
+.export-btn:hover,
+.reset-btn:hover,
+#cancelbtn:hover,
+#downloadbtn:hover,
+#deletebtn:hover,
+#notDeletebtn:hover,
+#logoutbtn:hover,
+#cancelBtn:hover{
+    box-shadow: 0px 0px 10px rgb(156, 143, 241);
+}
+.transaction{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: auto;
+    margin-left: 5px;
+    padding:0 20px 25px 20px;
+    box-shadow:2px 2px 10px lightgray;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+.transaction h4{
+    margin-left: 0;
+    margin-bottom: 2px;
+}
+.transaction table,tr,th,td{
+    border-collapse: collapse;
+    text-align: center;
+}
+.transaction th,td{
+    border-bottom: 1px solid lightgray;
+    padding:20px;
+}
+.transaction table{
+    width: 100%;
+    border: 1px solid lightgray;
+}
+.transaction th{
+    background-color: rgb(243, 248, 255);
+    color: #030158;
+}
+.transaction td{
+    font-size: 12px;
+}
+.transaction .type-expense{
+    background-color: rgb(253, 228, 228);
+    color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+.transaction .type-income{
+    background-color: rgb(209, 253, 209);
+    padding: 5px;
+    border-radius: 5px;
+    color:rgb(0, 174, 0);
+}
+.transaction table tr td .date,.transaction table tr td .category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+}
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.actions img{
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pagination{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+.pagination p{
+    font-size: 12px;
+    color: gray;
+}
+.pagination-btn{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    left: 50%;
+}
+.page-btn,
+.page-number{
+    padding:8px 14px;
+    border:1px solid #d0d7de;
+    background:#fff;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.2s;
+}
+.page-btn:hover,
+.page-number:hover{
+    background:#f2f2f2;
+}
+.page-number.active{
+    background:#4c49ff;
+    color:#fff;
+    border-color:#4c49ff;
+}
+#exportDialog,#deleteDialog,#logoutDialog{
+    border:1px solid rgb(109, 104, 104);
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+dialog::backdrop{
+    background:rgba(0,0,0,0.4);
+}
+.dialog-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+}
+
+/* =========================================================
+   Responsive improvements (added)
+   Base desktop styles above are untouched. These breakpoints
+   make the existing layout adapt to tablet/mobile instead of
+   overflowing horizontally.
+   ========================================================= */
+html{
+    overflow-x: hidden;
+}
+@media (max-width: 1100px){
+    .three-box{
+        flex-wrap: wrap;
+        gap:20px;
+    }
+    .search-container{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+@media (max-width: 900px){
+    .hamburger { display: flex; }
+    .left {
+        transform: translateX(-100%);
+        width: 240px;
+    }
+    .left.open {
+        transform: translateX(0);
+    }
+    .right{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .right h2{
+        margin-top: 70px;
+        padding-left: 58px;
+    }
+    .right .account{
+        float:none;
+        margin: 12px 20px 0 20px;
+        width: fit-content;
+    }
+}
+@media (max-width: 600px){
+    .three-box{
+        margin: 0 0px 25px 0px;
+    }
+    .box1,.box2,.box3{
+        flex-basis: 100%;
+        width: auto !important;
+    }
+    .search-container{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search input{
+        width: 100%;
+    }
+    .transaction{
+        margin-left: 0;
+        margin-right: 0;
+        overflow-x: auto;
+    }
+    .transaction table{
+        min-width: 600px;
+    }
+    .pagination{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .pagination-btn{
+        position: static;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 600px) {
+    .right .breadcrumbs {
+        padding-left: 58px;
+    }
+    .right h2 {
+        padding-left: 58px;
+    }
+}

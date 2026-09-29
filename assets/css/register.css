@@ -1,0 +1,95 @@
+/*register.php styles*/
+body{
+    margin:0;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.background{
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    position: fixed;
+    background-image:url("../images/register-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    filter: blur(5px);
+    z-index: -1;
+}
+.logo-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 5px;
+    margin-top: 30px;
+}
+.logo-container img{
+    width:50px;
+    height:50px;
+}
+.logo-container h1{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.box{
+    background-color: white;
+    width: 350px;
+    height: 420px;
+    margin:20px;
+    padding: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 5px;
+}
+.box h2{
+    margin-top:0;
+    text-align:center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    margin-bottom: 10px;
+}
+form{
+    padding: 5px;
+}
+form label{
+    font-weight: normal;
+}
+form input{
+    margin:10px 0;
+    padding:5px;
+    width:330px;
+    box-sizing: border-box;
+}
+input[type="submit"]{
+    display: block;
+    background-color: rgb(11, 57, 183);
+    border:0;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(140, 133, 241);
+    height:30px;
+    padding: 5px;
+    color:white;
+    cursor: pointer;
+    margin: 15px auto 2px auto;
+}
+.box p{
+    font-size:15px;
+    text-align:center;
+    margin-top:5px;
+    margin-bottom: 8px;
+}
+small{
+    color: red;
+    display: block;
+    margin-top:0;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+#msg{
+    font-size: 15px;
+    text-align: center;
+}
